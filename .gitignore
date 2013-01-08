@@ -1,0 +1,6 @@
+*.py[oc]
+*.swp
+*.log
+*.db
+*.tar.gz
+env/
