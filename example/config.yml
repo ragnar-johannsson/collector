@@ -1,0 +1,10 @@
+host: localhost
+port: 5000
+
+resources:
+    - name: uptime
+      secret: mysecret
+      mongodb_host: localhost
+      mongodb_port: 27017
+      mongodb_db: hosts
+      mongodb_collection: uptime
