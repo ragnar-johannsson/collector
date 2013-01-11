@@ -22,7 +22,7 @@ function hash_hmac {
     local data="$2"
     local key="$3"
     shift 3
-    echo -n "$data" | openssl dgst "-$digest" -hmac "$key" "$@"|awk 'NF==2 {print $2} NF==1 {printf "%s", $0}'
+    echo -n "$data" | openssl dgst "-$digest" -hmac "$key" "$@"
 }
 
 function sign {
