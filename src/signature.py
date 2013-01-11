@@ -1,4 +1,6 @@
 import hmac
+import logging
+
 from base64 import urlsafe_b64encode as b64encode
 from hashlib import sha1
 from time import time
@@ -11,6 +13,7 @@ def verify_signature(params, key):
     local_time = int(time())
 
     if not (local_time-600 < remote_time < local_time+600):
+        logging.debug("Timestamp is outside of designated boundaries")
         return False
 
     remote_signature = params.get('signature')
@@ -20,3 +23,5 @@ def verify_signature(params, key):
 
     if remote_signature == local_signature:
         return True
+
+    logging.debug("Incorrect signature")

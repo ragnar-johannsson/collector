@@ -1,3 +1,5 @@
+import logging
+
 from config import host, port, resources
 from flask import Flask, abort, request
 from signature import verify_signature
@@ -15,8 +17,13 @@ def serve(resource):
     if not request.args or not verify_signature(request.args.copy(), resource['secret']):
         abort(401)
 
-    for k in request.form.iterkeys():
-        persist(k, resource)
+    try:
+        for k in request.form.iterkeys():
+            persist(k, resource)
+    except Exception as e:
+        logging.error('Error persisting data: %s' % e.message)
+        logging.debug('Data: %s' % k)
+        return "Error saving data", 500
 
     return "OK"
 
