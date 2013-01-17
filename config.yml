@@ -17,3 +17,5 @@ resources:
       mongodb_port: 27017
       mongodb_db: russian
       mongodb_collection: vladimir
+      mongodb_user: putin
+      mongodb_passwd: 1234
