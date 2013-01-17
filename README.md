@@ -1,6 +1,6 @@
 ## Collector
 
-A simple API server that does one thing; collects JSON. Multiple API endpoints/resources/paths can be configured, each with it's own MongoDB backend. It's effectively an API router for persisting JSON to multiple MongoDB databases and/or collections.
+A simple API server that does one thing; collect JSON. Multiple API resource paths can be configured, each with it's own MongoDB backend. Collector is effectively an API router for persisting JSON to multiple MongoDB databases and/or collections.
 
 
 ### Installation & usage
